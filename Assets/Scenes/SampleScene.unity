@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  moveForceMultiplier: 5
+  moveForceMultiplier: 8
 --- !u!136 &1068986482
 CapsuleCollider:
   m_ObjectHideFlags: 0

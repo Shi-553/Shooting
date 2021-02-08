@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
     new Rigidbody rigidbody;
     Transform cameraTransform;
 
@@ -14,16 +13,13 @@ public class Player : MonoBehaviour
 
     Vector3 move;
 
-    void Start()
-    {
+    void Start() {
         rigidbody = GetComponent<Rigidbody>();
         cameraTransform = Camera.main.transform;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Vector3 dir = Vector3.zero;
+    void Update() {
 
         var forward = cameraTransform.forward;
         var right = cameraTransform.right;
@@ -33,22 +29,15 @@ public class Player : MonoBehaviour
         forward.y = 0;
         forward.Normalize();
 
-        if (Input.GetKey(KeyCode.W)) {
-            dir += forward;
-        }
-        if (Input.GetKey(KeyCode.A)) {
-            dir += -right;
-        }
-        if (Input.GetKey(KeyCode.S)) {
-            dir += -forward;
-        }
-        if (Input.GetKey(KeyCode.D)) {
-            dir += right;
-        }
-        dir.Normalize();
+        var h = Input.GetAxis("Horizontal");
+        var v = Input.GetAxis("Vertical");
 
-        move = dir * speed;
 
+        move = (forward * v + right * h).normalized * speed;
+
+        if (move != Vector3.zero) {
+            transform.rotation = Quaternion.LookRotation(move,Vector3.up);
+        }
     }
 
     private void FixedUpdate() {
