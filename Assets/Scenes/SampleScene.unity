@@ -401,8 +401,8 @@ GameObject:
   - component: {fileID: 1068986484}
   - component: {fileID: 1068986483}
   - component: {fileID: 1068986482}
-  - component: {fileID: 1068986481}
   - component: {fileID: 1068986480}
+  - component: {fileID: 1068986481}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -424,7 +424,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1068986481
 MonoBehaviour:
@@ -438,6 +438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8605cf2059192b479b1db008586db99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  defaultBulletPos: {x: 0, y: 0.2, z: 0.8}
   speed: 10
   moveForceMultiplier: 8
 --- !u!136 &1068986482
