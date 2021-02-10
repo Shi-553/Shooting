@@ -7,8 +7,6 @@ public class Player : MonoBehaviour {
     Transform cameraTransform;
 
     [SerializeField]
-    GameObject bulletPrefab = null;
-    [SerializeField]
     Vector3 defaultBulletPos =new Vector3(0,0.8f,0.3f);
 
     [SerializeField]
@@ -44,10 +42,6 @@ public class Player : MonoBehaviour {
             transform.rotation = Quaternion.LookRotation(move,Vector3.up);
         }
 
-        if (Input.GetButtonDown("Fire1") && bulletPrefab!=null) {
-            var pos = transform.position+ defaultBulletPos.x * transform.right + defaultBulletPos.y * transform.up + defaultBulletPos.z * transform.forward;
-            Instantiate(bulletPrefab, pos, transform.rotation);
-        }
     }
 
     private void FixedUpdate() {
